@@ -17,7 +17,7 @@ watch(() => route.name, () => { open.value = false })
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md backdrop-saturate-180 border-b border-line">
+  <header class="sticky top-0 z-50 bg-white shadow-soft-sm border-b border-line">
     <div class="container-yma flex items-center justify-between h-19 gap-6">
       <Logo @go="go"/>
       <nav class="hidden lg:flex items-center gap-1">

@@ -58,7 +58,7 @@ const team = [
           </div>
           <h3 class="text-[22px] font-bold mb-3 text-ink">Our mission</h3>
           <p class="text-base leading-relaxed text-ink-3">
-            To make rigorous, joyful mathematics accessible to every young Gambian — regardless of region, gender, school, or income — and to grow a community of mentors who keep the door open behind them.
+            To empower the youth of The Gambia through mathematics education, training, and practical income-generating skills that foster critical thinking, innovation, and self-reliance, while contributing to the reduction of poverty and unemployment and promoting sustainable national development.
           </p>
         </div>
         <div class="p-9 bg-bg-soft border border-line rounded-xl transition-all duration-200 hover:border-green hover:-translate-y-0.5 hover:shadow-(--shadow-soft-md)">
@@ -67,7 +67,7 @@ const team = [
           </div>
           <h3 class="text-[22px] font-bold mb-3 text-ink">Our vision</h3>
           <p class="text-base leading-relaxed text-ink-3">
-            A Gambia where every secondary school has a thriving math club, every region has trained mentors, and our students sit confidently among their peers at continental and world olympiads.
+            To promote mathematical excellence among the youth of The Gambia and contribute to the socio-economic development of the nation by nurturing innovative, analytical, and mathematically oriented young people who can showcase their talents and play meaningful roles in national growth and development.
           </p>
         </div>
       </div>

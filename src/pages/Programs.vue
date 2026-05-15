@@ -42,7 +42,7 @@ const filters = [
 
 const filtered = computed(() => filter.value === 'all' ? programs : programs.filter(p => p.cat === filter.value))
 
-const partnerSchools = ['NUSRAT','ARMITAGE','GAMBIA HIGH','SBEC','METHODIST','MARINA INT']
+const partnerSchools = ['Nusrat SSS','St Peter\'s SSS','Gambia Methodist','Charles Jow Memorial Academy','Kanifing East SSS','Latrikunda Sabiji SSS','Mahad SSS','Babylon Comprehensive SSS','Nemasu SSS']
 </script>
 
 <template>
