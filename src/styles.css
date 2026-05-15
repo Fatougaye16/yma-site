@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+@theme {
+  --color-burgundy: #8f2021;
+  --color-burgundy-dark: #71181a;
+  --color-burgundy-soft: #f6e4e4;
+  --color-green: #95ba45;
+  --color-green-dark: #7ba032;
+  --color-green-soft: #ecf2db;
+
+  --color-ink: #1a1614;
+  --color-ink-2: #3b3633;
+  --color-ink-3: #6b6562;
+  --color-ink-4: #9a9491;
+
+  --color-bg: #ffffff;
+  --color-bg-soft: #faf8f5;
+  --color-bg-soft-2: #f3efe9;
+  --color-line: #e9e3da;
+  --color-line-2: #dcd4c8;
+
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-sans: "Manrope", system-ui, -apple-system, sans-serif;
+
+  --shadow-soft-sm: 0 1px 2px rgba(26, 22, 20, 0.04), 0 1px 3px rgba(26, 22, 20, 0.04);
+  --shadow-soft-md: 0 4px 12px rgba(26, 22, 20, 0.06), 0 2px 4px rgba(26, 22, 20, 0.04);
+  --shadow-soft-lg: 0 12px 32px rgba(26, 22, 20, 0.08), 0 4px 12px rgba(26, 22, 20, 0.06);
+  --shadow-burgundy-glow: 0 18px 40px rgba(143, 32, 33, 0.10), 0 6px 16px rgba(26, 22, 20, 0.06);
+  --shadow-burgundy-btn: 0 8px 22px rgba(143, 32, 33, 0.25);
+
+  --container-yma: 1280px;
+}
+
+@layer base {
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--color-ink-2);
+    background: var(--color-bg);
+    -webkit-font-smoothing: antialiased;
+    text-wrap: pretty;
+  }
+  img { max-width: 100%; display: block; }
+  button { font-family: inherit; cursor: pointer; }
+  a { color: inherit; text-decoration: none; }
+}
+
+/* Placeholder stripe patterns — no Tailwind equivalent for repeating gradients */
+@utility ph-stripes {
+  background-image: repeating-linear-gradient(135deg, transparent 0 12px, rgba(26, 22, 20, 0.04) 12px 13px);
+}
+@utility ph-stripes-light {
+  background-image: repeating-linear-gradient(135deg, transparent 0 12px, rgba(255, 255, 255, 0.06) 12px 13px);
+}
+@utility ph-stripes-green {
+  background-image: repeating-linear-gradient(135deg, transparent 0 12px, rgba(255, 255, 255, 0.08) 12px 13px);
+}
+
+/* Layout primitives composed from Tailwind utilities */
+@utility container-yma {
+  @apply mx-auto max-w-[1280px] px-5 md:px-8;
+}
+@utility section-y {
+  @apply py-16 md:py-24;
+}
+@utility section-y-sm {
+  @apply py-12 md:py-16;
+}
+
+/* Button system */
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 px-[22px] py-3.5 rounded-[10px]
+         text-[15px] font-semibold min-h-[44px] border-[1.5px] border-transparent
+         whitespace-nowrap transition-all duration-[180ms] cursor-pointer
+         focus-visible:outline-2 focus-visible:outline-green focus-visible:outline-offset-[3px];
+}
+@utility btn-sm {
+  @apply px-4 py-2.5 text-sm min-h-[38px];
+}
+@utility btn-lg {
+  @apply px-7 py-4 text-base min-h-[52px];
+}
+@utility btn-primary {
+  @apply bg-burgundy text-white hover:bg-burgundy-dark hover:-translate-y-px hover:shadow-burgundy-btn;
+}
+@utility btn-secondary {
+  @apply bg-transparent text-green-dark border-green hover:bg-green hover:text-white;
+}
+@utility btn-ghost {
+  @apply bg-transparent text-ink border-line-2 hover:border-ink hover:bg-bg-soft;
+}
+
+/* Eyebrow tag with leading bar */
+@utility eyebrow {
+  @apply inline-flex items-center gap-2 text-xs font-bold tracking-[0.14em] uppercase text-burgundy
+         before:content-[''] before:w-[18px] before:h-[1.5px] before:bg-burgundy;
+}
+
+/* Card with hover lift */
+@utility card-base {
+  @apply bg-white border border-line rounded-xl overflow-hidden transition-all duration-200
+         flex flex-col hover:-translate-y-[3px] hover:border-green hover:shadow-[var(--shadow-burgundy-glow)];
+}
+
+/* Badge variants */
+@utility badge-base {
+  @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px]
+         font-bold tracking-[0.06em] uppercase;
+}
+
+/* Text link with arrow */
+@utility text-link {
+  @apply inline-flex items-center gap-1.5 text-burgundy font-semibold text-sm cursor-pointer
+         transition-[gap] duration-[180ms] hover:gap-2.5 hover:text-burgundy-dark;
+}
+
+/* Form field controls */
+@utility field-input {
+  @apply font-sans text-[15px] border-[1.5px] border-line bg-white px-3.5 py-3
+         rounded-[10px] text-ink outline-none transition-all duration-[180ms]
+         focus:border-green focus:shadow-[0_0_0_4px_var(--color-green-soft)];
+}
+
+/* Check pill (used in form choices) */
+@utility check-pill {
+  @apply flex items-center gap-2.5 px-3.5 py-3 border-[1.5px] border-line rounded-[10px]
+         cursor-pointer text-sm transition-all duration-150 select-none hover:border-burgundy;
+}
+@utility check-pill-checked {
+  @apply bg-burgundy-soft border-burgundy text-burgundy font-semibold;
+}
