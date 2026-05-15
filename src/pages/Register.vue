@@ -7,7 +7,9 @@ import FormSidebar from '../components/FormSidebar.vue'
 import SuccessScreen from '../components/SuccessScreen.vue'
 
 const router = useRouter()
-function go(name) { router.push({ name }) }
+function go(name) {
+  router.push({ name })
+}
 
 const sent = ref(false)
 const interests = ref(new Set())
@@ -30,9 +32,9 @@ function submit() {
 }
 
 const steps = [
-  { t:'Submit your registration', d:'Takes about 5 minutes. Your parent/guardian needs to consent.' },
-  { t:'We check fit & match a club', d:'We reach out within 7 days with the nearest club and a welcome pack.' },
-  { t:'Show up on Saturday', d:'First session is free with no commitment. Bring a notebook.' },
+  { t: 'Submit your registration', d: 'Takes about 5 minutes. Your parent/guardian needs to consent.' },
+  { t: 'We check fit & match a club', d: 'We reach out within 7 days with the nearest club and a welcome pack.' },
+  { t: 'Show up on Saturday', d: 'First session is free with no commitment. Bring a notebook.' },
 ]
 const why = [
   'All programs free — no fees, ever',
@@ -41,10 +43,30 @@ const why = [
   'Train alongside students from across The Gambia',
 ]
 
-const interestOptions = ['Geometry','Number theory','Combinatorics','Algebra','Olympiad problems','Math + coding','Math + art','Statistics & data']
-const programOptions = ['Saturday Math Club','Gambia Math Olympiad','Holiday Bootcamps','1:1 Mentor Match']
-const grades = ['Grade 5','Grade 6','Grade 7','Grade 8','Grade 9','Grade 10','Grade 11','Grade 12','University Year 1','University Year 2+']
-const relations = ['Mother','Father','Guardian','Sibling','Other']
+const interestOptions = [
+  'Geometry',
+  'Number theory',
+  'Combinatorics',
+  'Algebra',
+  'Olympiad problems',
+  'Math + coding',
+  'Math + art',
+  'Statistics & data',
+]
+const programOptions = ['Saturday Math Club', 'Gambia Math Olympiad', 'Holiday Bootcamps', '1:1 Mentor Match']
+const grades = [
+  'Grade 5',
+  'Grade 6',
+  'Grade 7',
+  'Grade 8',
+  'Grade 9',
+  'Grade 10',
+  'Grade 11',
+  'Grade 12',
+  'University Year 1',
+  'University Year 2+',
+]
+const relations = ['Mother', 'Father', 'Guardian', 'Sibling', 'Other']
 </script>
 
 <template>
@@ -59,7 +81,7 @@ const relations = ['Mother','Father','Guardian','Sibling','Other']
     </template>
 
     <template #sidebar>
-      <FormSidebar :steps="steps" :why="why" contact/>
+      <FormSidebar :steps="steps" :why="why" contact />
     </template>
 
     <SuccessScreen
@@ -73,23 +95,27 @@ const relations = ['Mother','Father','Guardian','Sibling','Other']
     />
 
     <form v-else class="grid gap-5" @submit.prevent="submit">
-      <div class="text-[13px] font-bold tracking-widest uppercase text-burgundy pt-2 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-line">
+      <div
+        class="text-[13px] font-bold tracking-widest uppercase text-burgundy pt-2 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-line"
+      >
         Student details
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div class="flex flex-col gap-2">
           <label class="text-[13px] font-semibold text-ink">Full name <span class="text-burgundy">*</span></label>
-          <input type="text" required placeholder="Aji Sarjo" class="field-input"/>
+          <input type="text" required placeholder="Aji Sarjo" class="field-input" />
         </div>
         <div class="flex flex-col gap-2">
           <label class="text-[13px] font-semibold text-ink">Date of birth <span class="text-burgundy">*</span></label>
-          <input type="date" required class="field-input"/>
+          <input type="date" required class="field-input" />
         </div>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div class="flex flex-col gap-2">
-          <label class="text-[13px] font-semibold text-ink">School / institution <span class="text-burgundy">*</span></label>
-          <input type="text" required placeholder="Nusrat Senior Secondary School" class="field-input"/>
+          <label class="text-[13px] font-semibold text-ink"
+            >School / institution <span class="text-burgundy">*</span></label
+          >
+          <input type="text" required placeholder="Nusrat Senior Secondary School" class="field-input" />
         </div>
         <div class="flex flex-col gap-2">
           <label class="text-[13px] font-semibold text-ink">Grade / Year <span class="text-burgundy">*</span></label>
@@ -102,22 +128,26 @@ const relations = ['Mother','Father','Guardian','Sibling','Other']
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div class="flex flex-col gap-2">
           <label class="text-[13px] font-semibold text-ink">Student email</label>
-          <input type="email" placeholder="optional" class="field-input"/>
+          <input type="email" placeholder="optional" class="field-input" />
           <span class="text-xs text-ink-3">Optional — useful if the student has their own email.</span>
         </div>
         <div class="flex flex-col gap-2">
           <label class="text-[13px] font-semibold text-ink">Student phone</label>
-          <input type="tel" placeholder="optional" class="field-input"/>
+          <input type="tel" placeholder="optional" class="field-input" />
         </div>
       </div>
 
-      <div class="text-[13px] font-bold tracking-widest uppercase text-burgundy pt-2 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-line">
+      <div
+        class="text-[13px] font-bold tracking-widest uppercase text-burgundy pt-2 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-line"
+      >
         Parent / guardian
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div class="flex flex-col gap-2">
-          <label class="text-[13px] font-semibold text-ink">Parent / guardian name <span class="text-burgundy">*</span></label>
-          <input type="text" required placeholder="Mariama Sarjo" class="field-input"/>
+          <label class="text-[13px] font-semibold text-ink"
+            >Parent / guardian name <span class="text-burgundy">*</span></label
+          >
+          <input type="text" required placeholder="Mariama Sarjo" class="field-input" />
         </div>
         <div class="flex flex-col gap-2">
           <label class="text-[13px] font-semibold text-ink">Relationship</label>
@@ -129,30 +159,40 @@ const relations = ['Mother','Father','Guardian','Sibling','Other']
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
         <div class="flex flex-col gap-2">
-          <label class="text-[13px] font-semibold text-ink">Parent / guardian phone <span class="text-burgundy">*</span></label>
-          <input type="tel" required placeholder="+220 …" class="field-input"/>
+          <label class="text-[13px] font-semibold text-ink"
+            >Parent / guardian phone <span class="text-burgundy">*</span></label
+          >
+          <input type="tel" required placeholder="+220 …" class="field-input" />
         </div>
         <div class="flex flex-col gap-2">
           <label class="text-[13px] font-semibold text-ink">Parent / guardian email</label>
-          <input type="email" placeholder="optional" class="field-input"/>
+          <input type="email" placeholder="optional" class="field-input" />
         </div>
       </div>
       <div class="flex flex-col gap-2">
         <label class="text-[13px] font-semibold text-ink">Emergency contact <span class="text-burgundy">*</span></label>
-        <input type="text" required placeholder="Name + phone — someone other than the parent above" class="field-input"/>
+        <input
+          type="text"
+          required
+          placeholder="Name + phone — someone other than the parent above"
+          class="field-input"
+        />
       </div>
 
-      <div class="text-[13px] font-bold tracking-widest uppercase text-burgundy pt-2 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-line">
+      <div
+        class="text-[13px] font-bold tracking-widest uppercase text-burgundy pt-2 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-line"
+      >
         What interests you?
       </div>
       <div class="flex flex-col gap-2">
         <label class="text-[13px] font-semibold text-ink">Areas of interest (pick any)</label>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           <label
-            v-for="i in interestOptions" :key="i"
+            v-for="i in interestOptions"
+            :key="i"
             :class="['check-pill', interests.has(i) && 'check-pill-checked']"
           >
-            <input type="checkbox" :checked="interests.has(i)" @change="toggleInterest(i)" class="accent-burgundy"/>
+            <input type="checkbox" :checked="interests.has(i)" class="accent-burgundy" @change="toggleInterest(i)" />
             {{ i }}
           </label>
         </div>
@@ -160,29 +200,34 @@ const relations = ['Mother','Father','Guardian','Sibling','Other']
       <div class="flex flex-col gap-2">
         <label class="text-[13px] font-semibold text-ink">Preferred program(s)</label>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-          <label
-            v-for="i in programOptions" :key="i"
-            :class="['check-pill', programs.has(i) && 'check-pill-checked']"
-          >
-            <input type="checkbox" :checked="programs.has(i)" @change="toggleProgram(i)" class="accent-burgundy"/>
+          <label v-for="i in programOptions" :key="i" :class="['check-pill', programs.has(i) && 'check-pill-checked']">
+            <input type="checkbox" :checked="programs.has(i)" class="accent-burgundy" @change="toggleProgram(i)" />
             {{ i }}
           </label>
         </div>
       </div>
 
-      <div class="text-[13px] font-bold tracking-widest uppercase text-burgundy pt-2 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-line">
+      <div
+        class="text-[13px] font-bold tracking-widest uppercase text-burgundy pt-2 flex items-center gap-3 after:content-[''] after:flex-1 after:h-px after:bg-line"
+      >
         Consent
       </div>
       <div class="flex gap-3 text-[13px] text-ink-2 bg-bg-soft p-4 rounded-[10px] border border-line items-start">
-        <input type="checkbox" required class="mt-1 accent-burgundy shrink-0"/>
-        <span>I (parent/guardian) consent to my child participating in YMA programs. I understand YMA may take photos at events for non-commercial use (website, reports, social media) and that I can opt out by emailing <strong>hello@yma.gm</strong>. <span class="text-burgundy">*</span></span>
+        <input type="checkbox" required class="mt-1 accent-burgundy shrink-0" />
+        <span
+          >I (parent/guardian) consent to my child participating in YMA programs. I understand YMA may take photos at
+          events for non-commercial use (website, reports, social media) and that I can opt out by emailing
+          <strong>hello@yma.gm</strong>. <span class="text-burgundy">*</span></span
+        >
       </div>
       <div class="flex gap-3 text-[13px] text-ink-2 bg-white p-4 rounded-[10px] border border-line items-start">
-        <input type="checkbox" checked class="mt-1 accent-burgundy shrink-0"/>
+        <input type="checkbox" checked class="mt-1 accent-burgundy shrink-0" />
         <span>Send me invitations to upcoming events and the monthly newsletter.</span>
       </div>
 
-      <button type="submit" class="btn btn-primary btn-lg justify-self-start">Submit registration <Icon name="arrow"/></button>
+      <button type="submit" class="btn btn-primary btn-lg justify-self-start">
+        Submit registration <Icon name="arrow" />
+      </button>
     </form>
   </FormShell>
 </template>

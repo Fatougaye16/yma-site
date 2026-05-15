@@ -7,9 +7,9 @@ const route = useRoute()
 </script>
 
 <template>
-  <Header/>
+  <Header />
   <main :data-screen-label="route.name">
-    <router-view/>
+    <router-view />
   </main>
-  <Footer/>
+  <Footer />
 </template>

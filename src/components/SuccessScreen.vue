@@ -12,9 +12,11 @@ defineEmits(['primary', 'secondary'])
 </script>
 
 <template>
-  <div class="bg-green-soft border-[1.5px] border-green rounded-xl p-12 text-center flex flex-col items-center gap-4 max-w-145">
+  <div
+    class="bg-green-soft border-[1.5px] border-green rounded-xl p-12 text-center flex flex-col items-center gap-4 max-w-145"
+  >
     <div class="w-16 h-16 rounded-full bg-green text-white grid place-items-center">
-      <Icon name="check" :size="32"/>
+      <Icon name="check" :size="32" />
     </div>
     <h3 class="text-green-dark text-[28px] font-display font-normal">{{ title }}</h3>
     <p class="m-0 text-ink-2 text-base leading-relaxed max-w-110">{{ message }}</p>

@@ -7,42 +7,102 @@ import PageHeader from '../components/PageHeader.vue'
 import CTABand from '../components/CTABand.vue'
 
 const router = useRouter()
-function go(name) { router.push({ name }) }
+function go(name) {
+  router.push({ name })
+}
 
 const filter = ref('all')
 
 const programs = [
-  { cat:'workshops', tag:'Workshops', title:'Saturday Math Club', desc:'Weekly after-school sessions covering problem-solving, geometry, number theory and combinatorics. Held at YMA Center and 14 partner schools.',
-    benefits:['Beyond-syllabus problem solving','Mentor-to-student ratio 1:6','Free for partner-school students'],
-    age:'Ages 12–18', freq:'Saturdays · 12 weeks', tone:'burgundy', img:'saturday-club.jpg' },
-  { cat:'competitions', tag:'Competitions', title:'Gambia Math Olympiad', desc:'The national olympiad: regional rounds in March, national finals in May, and a pipeline to Pan-African and continental olympiads.',
-    benefits:['Open to all secondary students','Travel & accommodation provided','Top performers join the GMO Team'],
-    age:'Grades 7–12', freq:'Annual · May', tone:'green', img:'gmo-olympiad.jpg' },
-  { cat:'outreach', tag:'Outreach', title:'Rural Schools Tour', desc:'Two-week traveling bootcamp visiting partner schools in CRR, URR and LRR each long vacation, reaching 600+ rural students annually.',
-    benefits:['Free workshops & take-home packs','Train-the-teacher sessions','Long-term mentor matching'],
-    age:'Grades 5–9', freq:'August · 2 weeks', tone:'soft', img:'rural-tour.jpg' },
-  { cat:'mentorship', tag:'Mentorship', title:'1:1 Mentor Match', desc:'Every active student gets a mentor — typically a university student, teacher or working professional — for monthly check-ins and problem coaching.',
-    benefits:['Vetted & trained mentors','Monthly 1:1 sessions','Lasts the full school year'],
-    age:'Ages 14–22', freq:'Year-round', tone:'green', img:'mentor-match.jpg' },
-  { cat:'workshops', tag:'Workshops', title:'Holiday Bootcamps', desc:'Intensive week-long bootcamps in December and April, focused on a single theme: geometry one camp, number theory the next.',
-    benefits:['5 days, full-time','Topic-deep dive','Residential option for upcountry'],
-    age:'Ages 14–22', freq:'Dec & Apr', tone:'soft', img:'bootcamp.jpg' },
-  { cat:'mentorship', tag:'Mentorship', title:'Teacher Network', desc:'A peer learning circle for math teachers, with monthly lesson clinics, shared problem sets, and a small classroom-grants fund.',
-    benefits:['Monthly clinic','Lesson library access','Small classroom grants'],
-    age:'For teachers', freq:'Monthly', tone:'burgundy', img:'teacher-network.jpg' },
+  {
+    cat: 'workshops',
+    tag: 'Workshops',
+    title: 'Saturday Math Club',
+    desc: 'Weekly after-school sessions covering problem-solving, geometry, number theory and combinatorics. Held at YMA Center and 14 partner schools.',
+    benefits: ['Beyond-syllabus problem solving', 'Mentor-to-student ratio 1:6', 'Free for partner-school students'],
+    age: 'Ages 12–18',
+    freq: 'Saturdays · 12 weeks',
+    tone: 'burgundy',
+    img: 'saturday-club.jpg',
+  },
+  {
+    cat: 'competitions',
+    tag: 'Competitions',
+    title: 'Gambia Math Olympiad',
+    desc: 'The national olympiad: regional rounds in March, national finals in May, and a pipeline to Pan-African and continental olympiads.',
+    benefits: ['Open to all secondary students', 'Travel & accommodation provided', 'Top performers join the GMO Team'],
+    age: 'Grades 7–12',
+    freq: 'Annual · May',
+    tone: 'green',
+    img: 'gmo-olympiad.jpg',
+  },
+  {
+    cat: 'outreach',
+    tag: 'Outreach',
+    title: 'Rural Schools Tour',
+    desc: 'Two-week traveling bootcamp visiting partner schools in CRR, URR and LRR each long vacation, reaching 600+ rural students annually.',
+    benefits: ['Free workshops & take-home packs', 'Train-the-teacher sessions', 'Long-term mentor matching'],
+    age: 'Grades 5–9',
+    freq: 'August · 2 weeks',
+    tone: 'soft',
+    img: 'rural-tour.jpg',
+  },
+  {
+    cat: 'mentorship',
+    tag: 'Mentorship',
+    title: '1:1 Mentor Match',
+    desc: 'Every active student gets a mentor — typically a university student, teacher or working professional — for monthly check-ins and problem coaching.',
+    benefits: ['Vetted & trained mentors', 'Monthly 1:1 sessions', 'Lasts the full school year'],
+    age: 'Ages 14–22',
+    freq: 'Year-round',
+    tone: 'green',
+    img: 'mentor-match.jpg',
+  },
+  {
+    cat: 'workshops',
+    tag: 'Workshops',
+    title: 'Holiday Bootcamps',
+    desc: 'Intensive week-long bootcamps in December and April, focused on a single theme: geometry one camp, number theory the next.',
+    benefits: ['5 days, full-time', 'Topic-deep dive', 'Residential option for upcountry'],
+    age: 'Ages 14–22',
+    freq: 'Dec & Apr',
+    tone: 'soft',
+    img: 'bootcamp.jpg',
+  },
+  {
+    cat: 'mentorship',
+    tag: 'Mentorship',
+    title: 'Teacher Network',
+    desc: 'A peer learning circle for math teachers, with monthly lesson clinics, shared problem sets, and a small classroom-grants fund.',
+    benefits: ['Monthly clinic', 'Lesson library access', 'Small classroom grants'],
+    age: 'For teachers',
+    freq: 'Monthly',
+    tone: 'burgundy',
+    img: 'teacher-network.jpg',
+  },
 ]
 
 const filters = [
-  { k:'all', l:'All programs' },
-  { k:'workshops', l:'Workshops' },
-  { k:'competitions', l:'Competitions' },
-  { k:'outreach', l:'Outreach' },
-  { k:'mentorship', l:'Mentorship' },
+  { k: 'all', l: 'All programs' },
+  { k: 'workshops', l: 'Workshops' },
+  { k: 'competitions', l: 'Competitions' },
+  { k: 'outreach', l: 'Outreach' },
+  { k: 'mentorship', l: 'Mentorship' },
 ]
 
-const filtered = computed(() => filter.value === 'all' ? programs : programs.filter(p => p.cat === filter.value))
+const filtered = computed(() => (filter.value === 'all' ? programs : programs.filter((p) => p.cat === filter.value)))
 
-const partnerSchools = ['NUSRAT','ARMITAGE','GAMBIA HIGH','SBEC','METHODIST','MARINA INT']
+const partnerSchools = [
+  'Nusrat SSS',
+  "St Peter's SSS",
+  'Gambia Methodist',
+  'Charles Jow Memorial Academy',
+  'Kanifing East SSS',
+  'Latrikunda Sabiji SSS',
+  'Mahad SSS',
+  'Babylon Comprehensive SSS',
+  'Nemasu SSS',
+]
 </script>
 
 <template>
@@ -59,18 +119,21 @@ const partnerSchools = ['NUSRAT','ARMITAGE','GAMBIA HIGH','SBEC','METHODIST','MA
     <div class="container-yma">
       <div class="flex gap-2 flex-wrap mb-8">
         <button
-          v-for="f in filters" :key="f.k"
+          v-for="f in filters"
+          :key="f.k"
           :class="[
             'px-3.5 py-2 rounded-full text-[13px] font-semibold border border-transparent cursor-pointer transition-all duration-150',
             filter === f.k ? 'bg-burgundy text-white' : 'bg-bg-soft text-ink-2 hover:bg-bg-soft-2',
           ]"
           @click="filter = f.k"
-        >{{ f.l }}</button>
+        >
+          {{ f.l }}
+        </button>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <article class="card-base" v-for="(p, i) in filtered" :key="i">
+        <article v-for="(p, i) in filtered" :key="i" class="card-base">
           <div class="aspect-16/10 bg-bg-soft-2 relative overflow-hidden">
-            <Placeholder :label="p.img" :tone="p.tone" class-name="h-full !rounded-none"/>
+            <Placeholder :label="p.img" :tone="p.tone" class-name="h-full !rounded-none" />
           </div>
           <div class="p-6 flex flex-col gap-3 flex-1">
             <span class="text-[11px] font-bold tracking-wider uppercase text-green-dark">{{ p.tag }}</span>
@@ -78,13 +141,13 @@ const partnerSchools = ['NUSRAT','ARMITAGE','GAMBIA HIGH','SBEC','METHODIST','MA
             <p class="text-ink-3 text-sm leading-relaxed">{{ p.desc }}</p>
             <ul class="list-none p-0 my-2 flex flex-col gap-1.5">
               <li v-for="(b, j) in p.benefits" :key="j" class="flex gap-2 text-[13px] text-ink-2">
-                <span class="text-green-dark shrink-0 mt-0.5"><Icon name="check" :size="14"/></span>
+                <span class="text-green-dark shrink-0 mt-0.5"><Icon name="check" :size="14" /></span>
                 <span>{{ b }}</span>
               </li>
             </ul>
             <div class="flex gap-4 flex-wrap text-xs text-ink-3 py-2">
-              <span class="inline-flex items-center gap-1.5"><Icon name="user" :size="14"/> {{ p.age }}</span>
-              <span class="inline-flex items-center gap-1.5"><Icon name="clock" :size="14"/> {{ p.freq }}</span>
+              <span class="inline-flex items-center gap-1.5"><Icon name="user" :size="14" /> {{ p.age }}</span>
+              <span class="inline-flex items-center gap-1.5"><Icon name="clock" :size="14" /> {{ p.freq }}</span>
             </div>
             <div class="flex items-center gap-3 flex-wrap mt-2">
               <button class="btn btn-primary btn-sm" @click="go('register')">Register</button>
@@ -106,10 +169,12 @@ const partnerSchools = ['NUSRAT','ARMITAGE','GAMBIA HIGH','SBEC','METHODIST','MA
             We don't parachute — we <em class="text-burgundy italic">partner</em>.
           </h2>
           <p class="text-[17px] text-ink-3 leading-relaxed mb-6">
-            Every workshop we run is co-planned with a school's math department. We share problem sets, train teachers, and leave behind a take-home pack so the work doesn't end when we do.
+            Every workshop we run is co-planned with a school's math department. We share problem sets, train teachers,
+            and leave behind a take-home pack so the work doesn't end when we do.
           </p>
           <blockquote class="italic border-l-[3px] border-green pl-4 text-ink m-0 text-[15px]">
-            "After YMA visited, three of my students started a math club at break. That's the win — they're carrying it now."
+            "After YMA visited, three of my students started a math club at break. That's the win — they're carrying it
+            now."
             <span class="block mt-2 not-italic text-[13px] text-ink-3">— Mr. Lamin Touray, Armitage High School</span>
           </blockquote>
           <div class="mt-8 flex flex-wrap items-center gap-3">
@@ -117,17 +182,20 @@ const partnerSchools = ['NUSRAT','ARMITAGE','GAMBIA HIGH','SBEC','METHODIST','MA
           </div>
         </div>
         <div>
-          <Placeholder label="school-partnership.jpg" tone="burgundy" aspect="4/3" class-name="!rounded-2xl"/>
+          <Placeholder label="school-partnership.jpg" tone="burgundy" aspect="4/3" class-name="!rounded-2xl" />
           <div class="grid grid-cols-3 gap-2 mt-4">
             <div
-              v-for="(s, i) in partnerSchools" :key="i"
+              v-for="(s, i) in partnerSchools"
+              :key="i"
               class="py-3 px-2 bg-white rounded-lg text-center text-[10px] font-bold tracking-wider text-ink-3 border border-line"
-            >{{ s }}</div>
+            >
+              {{ s }}
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <CTABand/>
+  <CTABand />
 </template>

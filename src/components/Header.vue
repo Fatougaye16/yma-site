@@ -13,16 +13,22 @@ function go(name) {
   router.push({ name })
 }
 
-watch(() => route.name, () => { open.value = false })
+watch(
+  () => route.name,
+  () => {
+    open.value = false
+  },
+)
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md backdrop-saturate-180 border-b border-line">
+  <header class="sticky top-0 z-50 bg-white shadow-soft-sm border-b border-line">
     <div class="container-yma flex items-center justify-between h-19 gap-6">
-      <Logo @go="go"/>
+      <Logo @go="go" />
       <nav class="hidden lg:flex items-center gap-1">
         <span
-          v-for="n in NAV_ITEMS" :key="n.key"
+          v-for="n in NAV_ITEMS"
+          :key="n.key"
           :class="[
             'relative px-3.5 py-2.5 text-sm rounded-lg cursor-pointer transition-colors duration-180',
             route.name === n.key
@@ -30,23 +36,18 @@ watch(() => route.name, () => { open.value = false })
               : 'text-ink-2 font-medium hover:text-burgundy',
           ]"
           @click="go(n.key)"
-        >{{ n.label }}</span>
+          >{{ n.label }}</span
+        >
       </nav>
       <div class="flex items-center gap-2.5">
-        <button
-          class="btn btn-ghost btn-sm hidden lg:inline-flex"
-          @click="go('volunteer')"
-        >Volunteer</button>
-        <button
-          class="btn btn-primary btn-sm hidden sm:inline-flex"
-          @click="go('register')"
-        >Join Us</button>
+        <button class="btn btn-ghost btn-sm hidden lg:inline-flex" @click="go('volunteer')">Volunteer</button>
+        <button class="btn btn-primary btn-sm hidden sm:inline-flex" @click="go('register')">Join Us</button>
         <button
           class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-[10px] border border-line"
-          @click="open = !open"
           aria-label="Menu"
+          @click="open = !open"
         >
-          <Icon :name="open ? 'close' : 'menu'" :size="22"/>
+          <Icon :name="open ? 'close' : 'menu'" :size="22" />
         </button>
       </div>
     </div>
@@ -58,13 +59,15 @@ watch(() => route.name, () => { open.value = false })
       ]"
     >
       <span
-        v-for="n in NAV_ITEMS" :key="n.key"
+        v-for="n in NAV_ITEMS"
+        :key="n.key"
         :class="[
           'px-4 py-4 text-lg border-b border-line cursor-pointer',
           route.name === n.key ? 'text-burgundy font-bold' : 'text-ink-2 font-medium hover:text-burgundy',
         ]"
         @click="go(n.key)"
-      >{{ n.label }}</span>
+        >{{ n.label }}</span
+      >
       <button class="btn btn-secondary mt-4" @click="go('volunteer')">Volunteer With Us</button>
       <button class="btn btn-primary mt-4" @click="go('register')">Join Us</button>
     </div>

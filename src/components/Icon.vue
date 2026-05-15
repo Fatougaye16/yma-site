@@ -14,7 +14,8 @@ const dim = computed(() => props.size ?? icon.value?.defaultSize ?? 18)
 <template>
   <svg
     v-if="icon && icon.type === 'stroke'"
-    :width="dim" :height="dim"
+    :width="dim"
+    :height="dim"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -23,11 +24,5 @@ const dim = computed(() => props.size ?? icon.value?.defaultSize ?? 18)
     :stroke-linejoin="icon.noJoin ? undefined : 'round'"
     v-html="icon.body"
   />
-  <svg
-    v-else-if="icon"
-    :width="dim" :height="dim"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    v-html="icon.body"
-  />
+  <svg v-else-if="icon" :width="dim" :height="dim" viewBox="0 0 24 24" fill="currentColor" v-html="icon.body" />
 </template>
