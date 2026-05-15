@@ -25,7 +25,7 @@ const labelToneClasses = computed(() => {
   return 'bg-white/85 border-line text-ink-3'
 })
 
-const aspectStyle = computed(() => props.aspect ? { aspectRatio: props.aspect } : {})
+const aspectStyle = computed(() => (props.aspect ? { aspectRatio: props.aspect } : {}))
 </script>
 
 <template>
@@ -40,11 +40,9 @@ const aspectStyle = computed(() => props.aspect ? { aspectRatio: props.aspect } 
   >
     <span
       v-if="label"
-      :class="[
-        'relative font-mono text-[11px] tracking-wide px-2.5 py-1.5 rounded-md border',
-        labelToneClasses,
-      ]"
-    >{{ label }}</span>
-    <slot/>
+      :class="['relative font-mono text-[11px] tracking-wide px-2.5 py-1.5 rounded-md border', labelToneClasses]"
+      >{{ label }}</span
+    >
+    <slot />
   </div>
 </template>
