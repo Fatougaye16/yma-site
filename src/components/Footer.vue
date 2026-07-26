@@ -57,9 +57,6 @@ function go(name) {
               @click="go('gallery')"
               >Gallery</a
             >
-            <a class="cursor-pointer text-white/75 hover:text-green transition-colors duration-180" @click="go('blog')"
-              >Blog</a
-            >
           </div>
         </div>
 
@@ -116,16 +113,6 @@ function go(name) {
             <div class="flex items-center gap-2"><Icon name="pin" :size="14" /> <span>Kanifing, The Gambia</span></div>
           </div>
         </div>
-      </div>
-
-      <div class="flex items-center gap-8 flex-wrap py-6 mt-8 border-t border-b border-white/10">
-        <span class="text-[11px] font-bold tracking-[0.14em] uppercase text-white/50">Trusted by</span>
-        <span
-          v-for="p in ['UNICEF GAMBIA', 'MoBSE', 'UTG', 'AFRIMATH', 'QELEM FOUNDATION', 'GAMTEL']"
-          :key="p"
-          class="text-[13px] text-white/65 font-bold tracking-wide opacity-70"
-          >{{ p }}</span
-        >
       </div>
 
       <div class="border-t border-white/10 pt-6 flex justify-between gap-4 text-xs text-white/50 flex-wrap mt-0">

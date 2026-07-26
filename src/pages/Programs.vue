@@ -37,28 +37,6 @@ const programs = [
     img: 'gmo-olympiad.jpg',
   },
   {
-    cat: 'outreach',
-    tag: 'Outreach',
-    title: 'Rural Schools Tour',
-    desc: 'Two-week traveling bootcamp visiting partner schools in CRR, URR and LRR each long vacation, reaching 600+ rural students annually.',
-    benefits: ['Free workshops & take-home packs', 'Train-the-teacher sessions', 'Long-term mentor matching'],
-    age: 'Grades 5–9',
-    freq: 'August · 2 weeks',
-    tone: 'soft',
-    img: 'rural-tour.jpg',
-  },
-  {
-    cat: 'mentorship',
-    tag: 'Mentorship',
-    title: '1:1 Mentor Match',
-    desc: 'Every active student gets a mentor — typically a university student, teacher or working professional — for monthly check-ins and problem coaching.',
-    benefits: ['Vetted & trained mentors', 'Monthly 1:1 sessions', 'Lasts the full school year'],
-    age: 'Ages 14–22',
-    freq: 'Year-round',
-    tone: 'green',
-    img: 'mentor-match.jpg',
-  },
-  {
     cat: 'workshops',
     tag: 'Workshops',
     title: 'Holiday Bootcamps',
@@ -69,25 +47,12 @@ const programs = [
     tone: 'soft',
     img: 'bootcamp.jpg',
   },
-  {
-    cat: 'mentorship',
-    tag: 'Mentorship',
-    title: 'Teacher Network',
-    desc: 'A peer learning circle for math teachers, with monthly lesson clinics, shared problem sets, and a small classroom-grants fund.',
-    benefits: ['Monthly clinic', 'Lesson library access', 'Small classroom grants'],
-    age: 'For teachers',
-    freq: 'Monthly',
-    tone: 'burgundy',
-    img: 'teacher-network.jpg',
-  },
 ]
 
 const filters = [
   { k: 'all', l: 'All programs' },
   { k: 'workshops', l: 'Workshops' },
   { k: 'competitions', l: 'Competitions' },
-  { k: 'outreach', l: 'Outreach' },
-  { k: 'mentorship', l: 'Mentorship' },
 ]
 
 const filtered = computed(() => (filter.value === 'all' ? programs : programs.filter((p) => p.cat === filter.value)))

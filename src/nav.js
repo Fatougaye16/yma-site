@@ -5,6 +5,7 @@ export const NAV_ITEMS = [
   { key: 'programs', label: 'Programs' },
   { key: 'events', label: 'Events' },
   { key: 'gallery', label: 'Gallery' },
-  { key: 'blog', label: 'Blog' },
+  // Blog hidden until we have real posts — restore alongside the route in router.js.
+  // { key: 'blog', label: 'Blog' },
   { key: 'contact', label: 'Contact' },
 ]
