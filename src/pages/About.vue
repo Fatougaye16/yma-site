@@ -287,7 +287,6 @@ const team = [
             years later she represented The Gambia at the Pan-African Mathematics Olympiad — and now leads our rural
             outreach.
           </p>
-          <a class="text-link mt-6" @click="go('blog')">Read Aji's story <Icon name="arrowR" /></a>
         </div>
       </div>
     </div>

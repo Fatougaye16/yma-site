@@ -6,7 +6,8 @@ const routes = [
   { path: '/programs', name: 'programs', component: () => import('./pages/Programs.vue') },
   { path: '/events', name: 'events', component: () => import('./pages/Events.vue') },
   { path: '/gallery', name: 'gallery', component: () => import('./pages/Gallery.vue') },
-  { path: '/blog', name: 'blog', component: () => import('./pages/Blog.vue') },
+  // Blog hidden until we have real posts — Blog.vue is intact; restore this line and the nav.js entry.
+  // { path: '/blog', name: 'blog', component: () => import('./pages/Blog.vue') },
   { path: '/contact', name: 'contact', component: () => import('./pages/Contact.vue') },
   { path: '/register', name: 'register', component: () => import('./pages/Register.vue') },
   { path: '/volunteer', name: 'volunteer', component: () => import('./pages/Volunteer.vue') },
